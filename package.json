@@ -42,7 +42,7 @@
     "check-standard-js": "standardx ./**/*.ts && standard ./**/*.js",
     "dev": "watch \"npm run copy-all-assets && npm run check-standard-js && npm run build:dev && npm run start:dev\" bin routes views public",
     "start": "npm run copy-all-assets && (node dist/bin/www.js || (forever stop dist/bin/www.js && node dist/bin/www.js))",
-    "start-check-and-stop": "npm run copy-all-assets && forever start dist/bin/www.js && curl -v localhost:3000 && forever stop dist/bin/www.js",
+    "start-check-and-stop": "npm run copy-all-assets && forever start dist/bin/www.js && curl --retry 5 -v localhost:3000 && forever stop dist/bin/www.js",
     "test": "npm run check-standard-js && jest",
     "test-with-coverage": "npm run check-standard-js && jest --coverage",
     "codecov": "jest --ci --coverage && codecov",
