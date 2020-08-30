@@ -16,15 +16,16 @@
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-typescript": "^7.10.4",
     "@types/jest": "^26.0.10",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
     "babel-jest": "^26.3.0",
     "codecov": "^3.7.2",
     "copyfiles": "^2.3.0",
     "forever": "^3.0.2",
     "jest": "^26.4.2",
-    "standard": "14.3.4",
+    "standardx": "^5.0.0",
     "ts-node": "^9.0.0",
     "typescript": "^4.0.2",
-    "typescript-standard": "^0.3.36",
     "watch": "^1.0.2"
   },
   "scripts": {
@@ -35,16 +36,34 @@
     "restart:dev": "forever stop dist/bin/www.js && forever start dist/bin/www.js",
     "start:dev": "forever start dist/bin/www.js || npm run restart:dev",
     "build:dev": "tsc",
-    "check-standard-js:dev": "standard",
-    "dev": "watch \"npm run copy-all-assets && npm run check-standard-js:dev && npm run build:dev && npm run start:dev\" bin routes views public",
+    "check-standard-js": "standardx ./**/*.ts && standard ./**/*.js",
+    "dev": "watch \"npm run copy-all-assets && npm run check-standard-js && npm run build:dev && npm run start:dev\" bin routes views public",
     "start": "npm run copy-all-assets && (node dist/bin/www.js || (forever stop dist/bin/www.js && node dist/bin/www.js))",
-    "test": "standard && jest",
-    "test-with-coverage":  "standard && jest --coverage",
+    "test": "npm run check-standard-js && jest",
+    "test-with-coverage": "npm run check-standard-js && jest --coverage",
     "codecov": "jest --ci --coverage && codecov"
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "error"
+    }
   },
   "standard": {
     "env": [
       "jest"
+    ],
+    "ignore": [
+      "dist"
+    ]
+  },
+  "standardx": {
+    "env": [
+      "jest"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
     ],
     "ignore": [
       "dist"

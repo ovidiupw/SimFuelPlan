@@ -22,16 +22,6 @@ Helps flight simulator pilots compute the fuel requirements for their trip.
     <img src="https://img.shields.io/codecov/c/github/ovidiupw/SimFuelPlan/master.svg?style=flat-square"
       alt="Test Coverage" />
   </a>
-  <!-- Node version -->
-  <a href="https://npmjs.org/package/simfuelplan">
-    <img src=" https://img.shields.io/node/v/simfuelplan"
-      alt="NodeJS version" />
-  </a>
-  <!-- NPM version -->
-  <a href="https://npmjs.org/package/simfuelplan">
-    <img src="https://img.shields.io/npm/v/simfuelplan?style=flat-square"
-      alt="NPM version" />
-  </a>
   <!-- Standard -->
   <a href="https://standardjs.com">
     <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square"
@@ -55,7 +45,7 @@ Open a command line / terminal app, then follow the steps below:
 1. `git clone git@github.com:ovidiupw/SimFuelPlan.git`
 2. Change directory to the newly created git clone (SimFuelPlan)
 3. `npm install`
-4. `npm start`
+4. `npm start` (try again if it fails the first time)
 5. Open `http://localhost:3000` to view the app
 
 ### Developing the app:
