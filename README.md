@@ -60,4 +60,4 @@ Open a command line / terminal app, then follow the steps below:
 6. To fix code style (standard) errors, run `standard --fix`
 7. Make sure the tests pass `npm test`
 8. Consider 'Running the app locally' as described in this README file to do additional testing
-9. Before pushing, make sure `npm run local-release` succeeds
+9. Before pushing, make sure `npm run check-release` succeeds

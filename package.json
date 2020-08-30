@@ -34,17 +34,19 @@
     "copy-views": "copyfiles views/* dist/",
     "copy-public": "copyfiles public/* dist/",
     "copy-bin": "copyfiles bin/* dist/",
-    "copy-all-assets": "npm run copy-views && npm run copy-public && npm run copy-bin",
+    "copy-routes": "copyfiles routes/* dist/",
+    "copy-all-assets": "npm run copy-views && npm run copy-public && npm run copy-bin &&  npm run copy-routes",
     "restart:dev": "forever stop dist/bin/www.js && forever start dist/bin/www.js",
     "start:dev": "forever start dist/bin/www.js || npm run restart:dev",
     "build:dev": "tsc",
     "check-standard-js": "standardx ./**/*.ts && standard ./**/*.js",
     "dev": "watch \"npm run copy-all-assets && npm run check-standard-js && npm run build:dev && npm run start:dev\" bin routes views public",
     "start": "npm run copy-all-assets && (node dist/bin/www.js || (forever stop dist/bin/www.js && node dist/bin/www.js))",
+    "start-check-and-stop": "npm run copy-all-assets && forever start dist/bin/www.js && curl -v localhost:3000 && forever stop dist/bin/www.js",
     "test": "npm run check-standard-js && jest",
     "test-with-coverage": "npm run check-standard-js && jest --coverage",
     "codecov": "jest --ci --coverage && codecov",
-    "local-release": "npm install && del-cli ./node_modules/** ./dist/** && npm install && npm run test && npm run test && npm run test-with-coverage"
+    "check-release": "npm install && del-cli ./node_modules/** ./dist/** && npm install && npm run test && npm run test && npm run test-with-coverage && npm run start-check-and-stop"
   },
   "eslintConfig": {
     "rules": {
