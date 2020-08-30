@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "target": "es5",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": ["bin/app.js", "bin", "public", "routes", "views"]
+}

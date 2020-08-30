@@ -1,0 +1,71 @@
+{
+  "name": "@ovidiupw/simfuelplan",
+  "version": "0.0.1-experimental",
+  "description": "Helps flight simulator pilots compute the fuel requirements for their trip",
+  "main": "bin/app.js",
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/jest": "^26.0.10",
+    "babel-jest": "^26.3.0",
+    "codecov": "^3.7.2",
+    "copyfiles": "^2.3.0",
+    "forever": "^3.0.2",
+    "jest": "^26.4.2",
+    "standard": "14.3.4",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2",
+    "typescript-standard": "^0.3.36",
+    "watch": "^1.0.2"
+  },
+  "scripts": {
+    "copy-views": "copyfiles views/* dist/",
+    "copy-images": "copyfiles public/images/* dist/",
+    "copy-stylesheets": "copyfiles public/stylesheets/* dist/",
+    "copy-all-assets": "npm run copy-views && npm run copy-images && npm run copy-stylesheets",
+    "restart:dev": "forever stop dist/bin/www.js && forever start dist/bin/www.js",
+    "start:dev": "forever start dist/bin/www.js || npm run restart:dev",
+    "build:dev": "tsc",
+    "check-standard-js:dev": "standard",
+    "dev": "watch \"npm run copy-all-assets && npm run check-standard-js:dev && npm run build:dev && npm run start:dev\" bin routes views public",
+    "start": "npm run copy-all-assets && (node dist/bin/www.js || (forever stop dist/bin/www.js && node dist/bin/www.js))",
+    "test": "standard && jest",
+    "test-with-coverage":  "standard && jest --coverage",
+    "codecov": "jest --ci --coverage && codecov"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": [
+      "dist"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ovidiupw/SimFuelPlan.git"
+  },
+  "keywords": [
+    "flight",
+    "simulator",
+    "fuel",
+    "planning",
+    "automated",
+    "compute"
+  ],
+  "author": "ovidiupw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ovidiupw/SimFuelPlan/issues"
+  },
+  "homepage": "https://github.com/ovidiupw/SimFuelPlan#readme"
+}
