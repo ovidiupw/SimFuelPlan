@@ -21,6 +21,7 @@
     "babel-jest": "^26.3.0",
     "codecov": "^3.7.2",
     "copyfiles": "^2.3.0",
+    "del-cli": "^3.0.1",
     "forever": "^3.0.2",
     "jest": "^26.4.2",
     "standard": "^14.3.4",
@@ -31,9 +32,9 @@
   },
   "scripts": {
     "copy-views": "copyfiles views/* dist/",
-    "copy-images": "copyfiles public/images/* dist/",
-    "copy-stylesheets": "copyfiles public/stylesheets/* dist/",
-    "copy-all-assets": "npm run copy-views && npm run copy-images && npm run copy-stylesheets",
+    "copy-public": "copyfiles public/* dist/",
+    "copy-bin": "copyfiles bin/* dist/",
+    "copy-all-assets": "npm run copy-views && npm run copy-public && npm run copy-bin",
     "restart:dev": "forever stop dist/bin/www.js && forever start dist/bin/www.js",
     "start:dev": "forever start dist/bin/www.js || npm run restart:dev",
     "build:dev": "tsc",
@@ -42,7 +43,8 @@
     "start": "npm run copy-all-assets && (node dist/bin/www.js || (forever stop dist/bin/www.js && node dist/bin/www.js))",
     "test": "npm run check-standard-js && jest",
     "test-with-coverage": "npm run check-standard-js && jest --coverage",
-    "codecov": "jest --ci --coverage && codecov"
+    "codecov": "jest --ci --coverage && codecov",
+    "local-release": "npm install && del-cli ./node_modules/** ./dist/** && npm install && npm run test && npm run test && npm run test-with-coverage"
   },
   "eslintConfig": {
     "rules": {

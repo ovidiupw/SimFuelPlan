@@ -42,7 +42,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 Open a command line / terminal app, then follow the steps below:
 
-1. `git clone git@github.com:ovidiupw/SimFuelPlan.git`
+1. `git clone https://github.com/ovidiupw/SimFuelPlan.git`
 2. Change directory to the newly created git clone (SimFuelPlan)
 3. `npm install`
 4. `npm start` (try again if it fails the first time)
@@ -52,7 +52,7 @@ Open a command line / terminal app, then follow the steps below:
 
 Open a command line / terminal app, then follow the steps below:
 
-1. `git clone git@github.com:ovidiupw/SimFuelPlan.git`
+1. `git clone https://github.com/ovidiupw/SimFuelPlan.git`
 2. Change directory to the newly created git clone (SimFuelPlan)
 3. `npm install`
 4. `npm run dev`
@@ -60,3 +60,4 @@ Open a command line / terminal app, then follow the steps below:
 6. To fix code style (standard) errors, run `standard --fix`
 7. Make sure the tests pass `npm test`
 8. Consider 'Running the app locally' as described in this README file to do additional testing
+9. Before pushing, make sure `npm run local-release` succeeds
